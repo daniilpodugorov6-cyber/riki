@@ -9,6 +9,7 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/inter-regular.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="preload" href="assets/hero.webp" as="image" media="(min-width: 761px)">
+  <link rel="preload" href="assets/monitor-poster.webp" as="image">
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
 </head>
@@ -20,7 +21,7 @@
         <img class="hero__photo" src="assets/hero.webp" alt="" width="1584" height="993" fetchpriority="high">
       </picture>
       <div class="monitor-plane">
-        <video class="monitor-video" muted loop playsinline preload="none" disablepictureinpicture tabindex="-1" aria-hidden="true" data-src="assets/monitor.mp4"></video>
+        <video class="monitor-video" autoplay muted loop playsinline preload="auto" poster="assets/monitor-poster.webp" disablepictureinpicture tabindex="-1" aria-hidden="true" src="assets/monitor.mp4"></video>
       </div>
     </div>
     <header class="header container">

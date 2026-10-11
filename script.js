@@ -96,15 +96,13 @@ function alignMonitor() {
 function updateMonitorPlayback() {
   if (reducedMotion.matches || document.hidden || !heroInView) {
     monitorVideo.pause();
-    if (reducedMotion.matches) monitorVideo.classList.remove('is-playing');
     return;
   }
-  if (!monitorVideo.getAttribute('src')) monitorVideo.src = monitorVideo.dataset.src;
   monitorVideo.muted = true;
   monitorVideo.play().catch(() => { /* The original photo remains visible if autoplay is blocked. */ });
 }
-monitorVideo.addEventListener('playing', () => monitorVideo.classList.add('is-playing'));
-monitorVideo.addEventListener('error', () => monitorVideo.classList.remove('is-playing'));
+
+monitorVideo.addEventListener('error', () => monitorVideo.classList.add('has-error'));
 new ResizeObserver(alignMonitor).observe(heroVisual);
 new IntersectionObserver(entries => {
   heroInView = entries[0].isIntersecting;
@@ -115,3 +113,5 @@ document.addEventListener('visibilitychange', updateMonitorPlayback);
 // A tap also retries playback on mobile browsers with restrictive autoplay settings.
 document.addEventListener('pointerdown', updateMonitorPlayback, { once: true });
 alignMonitor();
+
+updateMonitorPlayback();
