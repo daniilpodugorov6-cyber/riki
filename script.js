@@ -73,3 +73,45 @@ document.querySelector('#copy-brief').addEventListener('click', async () => {
     status.textContent = 'Текст выделен. Скопируйте его сочетанием Ctrl+C или ⌘C.';
   }
 });
+
+
+// Pin the video to the photograph, including object-fit cropping at every breakpoint.
+const monitorVideo = document.querySelector('.monitor-video');
+const monitorPlane = document.querySelector('.monitor-plane');
+const heroVisual = document.querySelector('.hero__visual');
+const heroPhoto = document.querySelector('.hero__photo');
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+let heroInView = true;
+function alignMonitor() {
+  const width = heroVisual.clientWidth, height = heroVisual.clientHeight;
+  const style = getComputedStyle(heroPhoto);
+  const position = style.objectPosition.split(' ').map(parseFloat);
+  const scale = style.objectFit === 'contain' ? Math.min(width / 1584, height / 993) : Math.max(width / 1584, height / 993);
+  const zoom = style.transform === 'none' ? 1 : new DOMMatrixReadOnly(style.transform).a;
+  const x = (width - 1584 * scale) * position[0] / 100;
+  const y = (height - 993 * scale) * position[1] / 100;
+  monitorPlane.style.transform = `translate(${width / 2 * (1 - zoom) + x * zoom}px, ${height / 2 * (1 - zoom) + y * zoom}px) scale(${scale * zoom})`;
+  monitorPlane.style.visibility = 'visible';
+}
+function updateMonitorPlayback() {
+  if (reducedMotion.matches || document.hidden || !heroInView) {
+    monitorVideo.pause();
+    if (reducedMotion.matches) monitorVideo.classList.remove('is-playing');
+    return;
+  }
+  if (!monitorVideo.getAttribute('src')) monitorVideo.src = monitorVideo.dataset.src;
+  monitorVideo.muted = true;
+  monitorVideo.play().catch(() => { /* The original photo remains visible if autoplay is blocked. */ });
+}
+monitorVideo.addEventListener('playing', () => monitorVideo.classList.add('is-playing'));
+monitorVideo.addEventListener('error', () => monitorVideo.classList.remove('is-playing'));
+new ResizeObserver(alignMonitor).observe(heroVisual);
+new IntersectionObserver(entries => {
+  heroInView = entries[0].isIntersecting;
+  updateMonitorPlayback();
+}).observe(heroVisual);
+reducedMotion.addEventListener('change', () => { alignMonitor(); updateMonitorPlayback(); });
+document.addEventListener('visibilitychange', updateMonitorPlayback);
+// A tap also retries playback on mobile browsers with restrictive autoplay settings.
+document.addEventListener('pointerdown', updateMonitorPlayback, { once: true });
+alignMonitor();
