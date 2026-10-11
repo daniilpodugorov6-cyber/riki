@@ -183,4 +183,13 @@ textarea{resize:vertical}
  .works-button::after{display:none}
  .works-button__arrow{display:block}
  .mobile-menu{top:84px}
+
+ .monitor-video {
+  transform: matrix3d(
+    0.210978422619, -0.071599702381, 0, -0.000137648809524,
+    0, 0.397058823529, 0, 0,
+    0, 0, 1, 0,
+    1114, 310, 0, 1
+  );
+}
 }
