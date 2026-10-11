@@ -5,10 +5,13 @@ const menuToggle = document.querySelector('.menu-toggle');
 const mobileMenu = document.querySelector('#mobile-menu');
 let returnFocus = null;
 
-function closeMenu() {
+function closeMenu(restoreFocus = false) {
   menuToggle.setAttribute('aria-expanded', 'false');
   menuToggle.setAttribute('aria-label', 'Открыть меню');
   mobileMenu.hidden = true;
+  document.querySelector('main').inert = false;
+  document.body.style.overflow = '';
+  if (restoreFocus) menuToggle.focus();
 }
 
 menuToggle.addEventListener('click', () => {
@@ -16,7 +19,12 @@ menuToggle.addEventListener('click', () => {
   menuToggle.setAttribute('aria-expanded', String(!isOpen));
   menuToggle.setAttribute('aria-label', isOpen ? 'Открыть меню' : 'Закрыть меню');
   mobileMenu.hidden = isOpen;
+  document.querySelector('main').inert = !isOpen;
+  document.body.style.overflow = isOpen ? '' : 'hidden';
+  if (!isOpen) mobileMenu.querySelector('.mobile-menu__close').focus();
 });
+
+document.querySelector('.mobile-menu__close').addEventListener('click', () => closeMenu(true));
 
 document.querySelectorAll('[data-contact]').forEach(button => {
   button.addEventListener('click', () => {
@@ -42,7 +50,13 @@ dialog.addEventListener('close', () => {
   else menuToggle.focus();
 });
 document.addEventListener('keydown', event => {
-  if (event.key === 'Escape') closeMenu();
+  if (event.key === 'Escape' && !mobileMenu.hidden) closeMenu(true);
+  if (event.key === 'Tab' && !mobileMenu.hidden) {
+    const items = [...mobileMenu.querySelectorAll('button:not(:disabled), a[href]')];
+    const first = items[0], last = items[items.length - 1];
+    if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+    else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+  }
 });
 document.addEventListener('pointerdown', event => {
   if (!mobileMenu.hidden && !mobileMenu.contains(event.target) && !menuToggle.contains(event.target)) closeMenu();

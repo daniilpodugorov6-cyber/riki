@@ -10,8 +10,8 @@
   <link rel="preload" href="assets/inter-regular.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="preload" href="assets/hero.webp" as="image" media="(min-width: 761px)">
   <link rel="preload" href="assets/monitor-poster.webp" as="image">
-  <link rel="stylesheet" href="styles.css">
-  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="styles.css?v=20261011-3">
+  <script src="script.js?v=20261011-3" defer></script>
 </head>
 <body>
   <main class="hero" id="home">
@@ -27,7 +27,7 @@
     <header class="header container">
       <a class="identity" href="#home" aria-label="Даниил Рики — на главную">
         <span class="identity__name">ДАНИИЛ РИКИ</span>
-        <span class="identity__description">Веб-дизайнер<br>и разработчик</span>
+        <span class="identity__description">Веб-дизайнер<br> и разработчик</span>
       </a>
       <nav class="navigation" aria-label="Навигация">
         <!-- Эти пункты активируются при добавлении соответствующих разделов. -->
@@ -41,14 +41,6 @@
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Открыть меню">
         <span></span><span></span>
       </button>
-      <div class="mobile-menu" id="mobile-menu" hidden>
-        <nav class="mobile-menu__navigation" aria-label="Навигация мобильного меню">
-          <button class="navigation__item" type="button" disabled>Работы</button>
-          <button class="navigation__item" type="button" disabled>Этапы</button>
-          <button class="navigation__item" type="button" disabled>Стоимость</button>
-        </nav>
-        <button class="button button--primary" type="button" data-contact>Обсудить проект<svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg></button>
-      </div>
     </header>
     <section class="hero__content container" aria-labelledby="hero-title">
       <div class="hero__copy">
@@ -67,6 +59,21 @@
       </div>
     </section>
   </main>
+
+
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Меню сайта" hidden>
+    <div class="mobile-menu__top">
+      <span class="mobile-menu__brand">ДАНИИЛ РИКИ</span>
+      <button class="mobile-menu__close" type="button" aria-label="Закрыть меню"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4 20 20M20 4 4 20"/></svg></button>
+    </div>
+    <nav class="mobile-menu__navigation" aria-label="Навигация мобильного меню">
+      <button class="navigation__item" type="button" disabled>Работы</button>
+      <button class="navigation__item" type="button" disabled>Этапы работы</button>
+      <button class="navigation__item" type="button" disabled>Стоимость</button>
+      <button class="navigation__item" type="button" data-contact>Контакты</button>
+    </nav>
+    <p class="mobile-menu__caption">Сайты для бизнеса под ключ</p>
+  </div>
 
   <dialog class="contact-dialog" id="contact-dialog" aria-labelledby="contact-title">
     <div class="contact-dialog__body">
