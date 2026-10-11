@@ -233,3 +233,28 @@ textarea{resize:vertical}
  .hero__actions .works-button{background:rgba(6,18,30,.45);backdrop-filter:blur(6px)}
  .monitor-video{transform:matrix3d(0.392550944439,-0.0916723994333,0,-9.72036825454e-05,0.000673634442823,0.430682884133,0,1.61736961062e-06,0,0,1,0,416.5,826.5,0,1)}
 }
+
+/* Mobile heading: a quiet introduction and a larger, deliberate result. */
+@media(max-width:760px){
+ .hero__copy>.eyebrow{margin-bottom:18px;font-size:10px;letter-spacing:.18em;color:#aab8ca}
+ .headline{font-size:clamp(23px,6.3vw,34px);line-height:1.12;letter-spacing:-.04em;text-wrap:initial;font-weight:400}
+ .headline__line,.headline__line:last-child{display:block;overflow:visible;padding:0;margin:0}
+ .headline__line>span{display:block;animation:none}
+ .headline__line:not(:last-child){color:#d3dcea}
+ .headline__line:last-child{margin-top:12px;font-size:clamp(34px,10.8vw,56px);font-weight:500;line-height:1.04;letter-spacing:-.05em;color:#f7f8fb}
+ .headline__audience,.headline__result{display:block}
+ .headline__accent{margin-bottom:0}
+ .marker-underline{bottom:-.2em;height:.2em}
+ .hero__description{margin-top:27px;font-size:14px;line-height:1.55;letter-spacing:-.015em;color:#b5c1d1;text-wrap:pretty}
+ .hero__description-lead{color:#f0f3f8;font-weight:500}
+}
+
+/* Match the open-menu identity to the closed header, without vertical motion. */
+@media(max-width:760px){
+ .hero>.header{animation:none}
+ .mobile-menu{padding-top:20px;animation:none}
+ .mobile-menu__top{min-height:90px;gap:16px}
+ .mobile-menu__contact{margin-top:40px;min-height:56px!important;padding:17px 19px;border-radius:12px;justify-content:space-between;gap:12px}
+ .mobile-menu__navigation{animation:menu-enter .35s var(--ease) both}
+}
+@media(max-width:760px) and (prefers-reduced-motion:reduce){.mobile-menu__navigation{animation:none}}

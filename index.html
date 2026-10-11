@@ -12,8 +12,8 @@
   <link rel="preload" href="assets/mobile-monitor-poster.webp" as="image" media="(min-width: 761px)">
   <link rel="preload" href="assets/hero-mobile-portrait.webp" as="image" media="(max-width: 760px)">
   <link rel="preload" href="assets/mobile-monitor-poster.webp" as="image" media="(max-width: 760px)">
-  <link rel="stylesheet" href="styles.css?v=20261011-composition-3">
-  <script src="script.js?v=20261011-composition-3" defer></script>
+  <link rel="stylesheet" href="styles.css?v=20261011-menu-5">
+  <script src="script.js?v=20261011-menu-5" defer></script>
 </head>
 <body>
   <main class="hero" id="home">
@@ -51,9 +51,9 @@
         <h1 id="hero-title" class="headline">
           <span class="headline__line"><span style="--delay: 180ms">Разрабатываю сайты,</span></span>
           <span class="headline__line"><span style="--delay: 280ms">которые превращают</span></span>
-          <span class="headline__line"><span style="--delay: 380ms">посетителей в <em class="headline__accent">клиентов<svg class="marker-underline" viewBox="0 0 300 40" preserveAspectRatio="none" aria-hidden="true"><path d="M2 23 C77 2 194 -2 291 22 L298 39 C211 7 96 11 2 23 Z"/></svg></em></span></span>
+          <span class="headline__line"><span style="--delay: 380ms"><span class="headline__audience">посетителей</span> <span class="headline__result">в <em class="headline__accent">клиентов<svg class="marker-underline" viewBox="0 0 300 40" preserveAspectRatio="none" aria-hidden="true"><path d="M2 23 C77 2 194 -2 291 22 L298 39 C211 7 96 11 2 23 Z"/></svg></em></span></span></span>
         </h1>
-        <p class="hero__description reveal" style="--delay: 500ms">Беру на себя весь цикл: структуру, тексты, индивидуальный дизайн, разработку, базовую SEO-оптимизацию и запуск.</p>
+        <p class="hero__description reveal" style="--delay: 500ms"><span class="hero__description-lead">Беру на себя весь цикл:</span> структуру, тексты, индивидуальный дизайн, разработку, базовую SEO-оптимизацию и запуск.</p>
         <div class="hero__actions reveal" style="--delay: 620ms">
           <button class="button button--primary" type="button" data-contact><span>Получить расчёт стоимости</span><svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg></button>
           <!-- Портфолио будет подключено вместе с блоком работ. -->
@@ -66,7 +66,7 @@
 
   <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Меню сайта" hidden>
     <div class="mobile-menu__top">
-      <span class="mobile-menu__brand">ДАНИИЛ РИКИ</span>
+      <div class="identity mobile-menu__identity"><span class="identity__name">ДАНИИЛ РИКИ</span><span class="identity__description">Веб-дизайнер<br> и разработчик</span></div>
       <button class="mobile-menu__close" type="button" aria-label="Закрыть меню"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4 20 20M20 4 4 20"/></svg></button>
     </div>
     <nav class="mobile-menu__navigation" aria-label="Навигация мобильного меню">
@@ -75,7 +75,7 @@
       <button class="navigation__item" type="button" disabled>Стоимость</button>
       <button class="navigation__item" type="button" data-contact>Контакты</button>
     </nav>
-    <p class="mobile-menu__caption">Сайты для бизнеса под ключ</p>
+    <button class="button button--primary mobile-menu__contact" type="button" data-contact><span>Получить расчёт стоимости</span><svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg></button>
   </div>
 
   <dialog class="contact-dialog" id="contact-dialog" aria-labelledby="contact-title">
