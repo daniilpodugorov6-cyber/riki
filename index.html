@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#06121e">
+  <title>Даниил Рики — сайты, которые превращают посетителей в клиентов</title>
+  <meta name="description" content="Разрабатываю сайты, которые превращают посетителей в клиентов. Структура, тексты, индивидуальный дизайн, разработка, базовая SEO-оптимизация и запуск.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/inter-regular.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="assets/hero.webp" as="image" media="(min-width: 761px)">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="hero" id="home">
+    <div class="hero__visual" aria-hidden="true">
+      <picture>
+        <source media="(max-width: 760px)" srcset="assets/hero-small.webp">
+        <img class="hero__photo" src="assets/hero.webp" alt="" width="1584" height="993" fetchpriority="high">
+      </picture>
+      <div class="monitor-plane">
+        <video class="monitor-video" muted loop playsinline preload="none" disablepictureinpicture tabindex="-1" aria-hidden="true" data-src="assets/monitor.mp4"></video>
+      </div>
+    </div>
+    <header class="header container">
+      <a class="identity" href="#home" aria-label="Даниил Рики — на главную">
+        <span class="identity__name">Даниил Рики</span>
+        <span class="identity__description">Веб-дизайнер<br>и разработчик</span>
+      </a>
+      <nav class="navigation" aria-label="Навигация">
+        <!-- Эти пункты активируются при добавлении соответствующих разделов. -->
+        <button class="navigation__item" type="button" disabled>Работы</button>
+        <button class="navigation__item" type="button" disabled>Этапы</button>
+        <button class="navigation__item" type="button" disabled>Стоимость</button>
+      </nav>
+      <button class="button button--outline header__contact" type="button" data-contact>
+        <span>Обсудить проект</span><svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg>
+      </button>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Открыть меню">
+        <span></span><span></span>
+      </button>
+      <div class="mobile-menu" id="mobile-menu" hidden>
+        <p>Даниил Рики<span>Веб-дизайнер и разработчик</span></p>
+        <button class="button button--primary" type="button" data-contact>Обсудить проект<svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg></button>
+      </div>
+    </header>
+    <section class="hero__content container" aria-labelledby="hero-title">
+      <div class="hero__copy">
+        <p class="eyebrow reveal" style="--delay: 100ms">Разработка под ключ</p>
+        <h1 id="hero-title" class="headline">
+          <span class="headline__line"><span style="--delay: 180ms">Разрабатываю сайты,</span></span>
+          <span class="headline__line"><span style="--delay: 280ms">которые превращают</span></span>
+          <span class="headline__line"><span style="--delay: 380ms">посетителей в <em class="headline__accent">клиентов<svg class="marker-underline" viewBox="0 0 300 40" preserveAspectRatio="none" aria-hidden="true"><path d="M2 23 C77 2 194 -2 291 22 L298 39 C211 7 96 11 2 23 Z"/></svg></em></span></span>
+        </h1>
+        <p class="hero__description reveal" style="--delay: 500ms">Беру на себя весь цикл: структуру, тексты, индивидуальный дизайн, разработку, базовую SEO-оптимизацию и запуск.</p>
+        <div class="hero__actions reveal" style="--delay: 620ms">
+          <button class="button button--primary" type="button" data-contact><span>Получить расчёт стоимости</span><svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg></button>
+          <!-- Портфолио будет подключено вместе с блоком работ. -->
+          <button class="text-link" type="button" disabled>Посмотреть работы</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <dialog class="contact-dialog" id="contact-dialog" aria-labelledby="contact-title">
+    <div class="contact-dialog__body">
+      <button class="close-button" type="button" data-close aria-label="Закрыть окно"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button>
+      <p class="eyebrow">Начнём с вашей задачи</p>
+      <h2 id="contact-title">Обсудим ваш сайт</h2>
+      <p class="contact-dialog__description">Расскажите о бизнесе и о том, какой сайт вам нужен.</p>
+      <form id="brief-form">
+        <label for="contact">Ваш Telegram <span aria-hidden="true">*</span></label>
+        <input id="contact" name="contact" autocomplete="off" placeholder="@username или ссылка на профиль" required maxlength="150">
+        <label for="project">Коротко о проекте <span class="optional">Необязательно</span></label>
+        <textarea id="project" name="project" rows="3" maxlength="2000" placeholder="Чем занимаетесь и для чего нужен сайт?"></textarea>
+        <button class="button button--primary contact-dialog__submit" type="submit">Подготовить сообщение<svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg></button>
+        <p class="form-note">Сообщение можно скопировать. Данные из этого окна никуда не отправляются.</p>
+      </form>
+      <div class="brief-result" id="brief-result" hidden aria-live="polite">
+        <p class="brief-result__title">Ваше сообщение</p>
+        <textarea id="brief-text" rows="6" readonly aria-label="Подготовленное сообщение"></textarea>
+        <button class="button button--primary" id="copy-brief" type="button">Скопировать сообщение</button>
+        <p id="copy-status" class="form-note" role="status"></p>
+      </div>
+    </div>
+  </dialog>
+</body>
+</html>
