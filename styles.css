@@ -80,11 +80,7 @@ textarea{resize:vertical}
 .brief-result__title{font-size:14px;margin:26px 0 14px}
 .brief-result .button{width:100%;margin-top:20px}
 [hidden]{display:none!important}
-/* Заставка 650 мс + растворение 400 мс; не зависит от загрузки JS. */
-.preloader{position:fixed;inset:0;z-index:100;background:#06121e;display:grid;place-items:center;pointer-events:none;animation:preloader-exit .4s ease .65s forwards}
-.preloader__signature{width:184px;text-align:center}
-.preloader__signature span{display:block;font-size:20px;font-weight:400;letter-spacing:-.65px;animation:signature-enter .5s var(--ease) both}
-.preloader__signature i{display:block;height:1px;margin-top:18px;background:rgba(247,248,251,.65);transform-origin:left;animation:signature-line .65s var(--ease) both}
+
 @keyframes signature-enter{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
 @keyframes signature-line{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 @keyframes preloader-exit{to{opacity:0;visibility:hidden}}
