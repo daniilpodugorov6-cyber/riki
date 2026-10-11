@@ -9,19 +9,21 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/inter-regular.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="preload" href="assets/hero.webp" as="image" media="(min-width: 761px)">
-  <link rel="preload" href="assets/monitor-poster.webp" as="image">
-  <link rel="stylesheet" href="styles.css?v=20261011-3">
-  <script src="script.js?v=20261011-3" defer></script>
+  <link rel="preload" href="assets/monitor-poster.webp" as="image" media="(min-width: 761px)">
+  <link rel="preload" href="assets/hero-mobile.webp" as="image" media="(max-width: 760px)">
+  <link rel="preload" href="assets/mobile-monitor-poster.webp" as="image" media="(max-width: 760px)">
+  <link rel="stylesheet" href="styles.css?v=20261011-mobile-1">
+  <script src="script.js?v=20261011-mobile-1" defer></script>
 </head>
 <body>
   <main class="hero" id="home">
     <div class="hero__visual" aria-hidden="true">
       <picture>
-        <source media="(max-width: 760px)" srcset="assets/hero-small.webp">
+        <source media="(max-width: 760px)" srcset="assets/hero-mobile.webp" width="1254" height="1254">
         <img class="hero__photo" src="assets/hero.webp" alt="" width="1584" height="993" fetchpriority="high">
       </picture>
       <div class="monitor-plane">
-        <video class="monitor-video" autoplay muted loop playsinline preload="auto" poster="assets/monitor-poster.webp" disablepictureinpicture tabindex="-1" aria-hidden="true" src="assets/monitor.mp4"></video>
+        <video class="monitor-video" autoplay muted loop playsinline preload="auto" poster="assets/monitor-poster.webp" disablepictureinpicture tabindex="-1" aria-hidden="true" data-desktop-src="assets/monitor.mp4" data-mobile-src="assets/monitor-mobile.mp4"></video>
       </div>
     </div>
     <header class="header container">

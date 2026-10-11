@@ -95,17 +95,31 @@ const monitorPlane = document.querySelector('.monitor-plane');
 const heroVisual = document.querySelector('.hero__visual');
 const heroPhoto = document.querySelector('.hero__photo');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+const mobilePhotoQuery = window.matchMedia('(max-width: 760px)');
 let heroInView = true;
 function alignMonitor() {
+  const mobile = mobilePhotoQuery.matches;
+  const photoWidth = mobile ? 1254 : 1584;
+  const photoHeight = mobile ? 1254 : 993;
+  monitorPlane.style.width = `${photoWidth}px`;
+  monitorPlane.style.height = `${photoHeight}px`;
+  const poster = mobile ? 'assets/mobile-monitor-poster.webp' : 'assets/monitor-poster.webp';
+  if (monitorVideo.getAttribute('poster') !== poster) monitorVideo.setAttribute('poster', poster);
+  const videoSource = mobile ? monitorVideo.dataset.mobileSrc : monitorVideo.dataset.desktopSrc;
+  if (monitorVideo.getAttribute('src') !== videoSource) {
+    monitorVideo.src = videoSource;
+    monitorVideo.load();
+    updateMonitorPlayback();
+  }
   const width = heroVisual.clientWidth, height = heroVisual.clientHeight;
   const style = getComputedStyle(heroPhoto);
   const position = style.objectPosition.split(' ').map(parseFloat);
-  const scale = style.objectFit === 'contain' ? Math.min(width / 1584, height / 993) : Math.max(width / 1584, height / 993);
+  const scale = style.objectFit === 'contain' ? Math.min(width / photoWidth, height / photoHeight) : Math.max(width / photoWidth, height / photoHeight);
   const zoom = style.transform === 'none' ? 1 : new DOMMatrixReadOnly(style.transform).a;
-  const x = (width - 1584 * scale) * position[0] / 100;
-  const y = (height - 993 * scale) * position[1] / 100;
+  const x = (width - photoWidth * scale) * position[0] / 100;
+  const y = (height - photoHeight * scale) * position[1] / 100;
   monitorPlane.style.transform = `translate(${width / 2 * (1 - zoom) + x * zoom}px, ${height / 2 * (1 - zoom) + y * zoom}px) scale(${scale * zoom})`;
-  monitorPlane.style.visibility = 'visible';
+  monitorPlane.style.visibility = heroPhoto.complete && heroPhoto.naturalWidth ? 'visible' : 'hidden';
 }
 function updateMonitorPlayback() {
   if (reducedMotion.matches || document.hidden || !heroInView) {
@@ -115,6 +129,9 @@ function updateMonitorPlayback() {
   monitorVideo.muted = true;
   monitorVideo.play().catch(() => { /* The original photo remains visible if autoplay is blocked. */ });
 }
+
+heroPhoto.addEventListener('load', alignMonitor);
+mobilePhotoQuery.addEventListener('change', alignMonitor);
 
 monitorVideo.addEventListener('error', () => monitorVideo.classList.add('has-error'));
 new ResizeObserver(alignMonitor).observe(heroVisual);

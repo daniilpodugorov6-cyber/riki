@@ -208,3 +208,12 @@ textarea{resize:vertical}
 }
 @keyframes menu-enter{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}
 @media(prefers-reduced-motion:reduce){.mobile-menu{animation:none}}
+
+/* Mobile photograph has its own canvas and monitor perspective. */
+@media(max-width:760px){
+ .hero__visual{height:auto;aspect-ratio:1/1;flex-shrink:0}
+ .hero__photo{object-fit:cover;object-position:50% 50%;transform:none}
+ .hero__visual::after{background:none}
+ .monitor-video{transform:matrix3d(0.654395107985,-0.0222545523209,0,-6.75417492577e-05,-0.000612740099792,0.708674558659,0,2.01429354697e-06,0,0,1,0,508,142,0,1);filter:brightness(.95) saturate(.95)}
+}
+@media(max-width:760px) and (prefers-reduced-motion:reduce){.monitor-plane{display:block}}
