@@ -123,7 +123,7 @@ textarea{resize:vertical}
 
 /* Video uses the same cover crop and zoom as the underlying photograph. */
 .monitor-plane{position:absolute;left:0;top:0;width:1584px;height:993px;transform-origin:0 0;pointer-events:none;visibility:hidden}
-.monitor-video{position:absolute;left:0;top:0;width:960px;height:612px;object-fit:fill;transform-origin:0 0;transform:matrix3d(0.168302572707,-0.0847000838926,0,-0.000167785234899,0,0.408496732026,0,0,0,0,1,0,1111.5,309.5,0,1);filter:brightness(.82) saturate(.88);opacity:1}
+.monitor-video{position:absolute;left:0;top:0;width:960px;height:612px;object-fit:fill;transform-origin:0 0;transform: matrix3d(0.1700959623, -0.0835327630198, 0, -0.000165104940746, 0.00162683279508, 0.407265999445, 0, -0.00000074014153307, 0, 0, 1, 0, 1112, 309.5, 0, 1);
 .monitor-video.has-error{visibility:hidden}
 @media(prefers-reduced-motion:reduce){.monitor-plane{display:none}}
 
