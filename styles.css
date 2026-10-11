@@ -128,6 +128,7 @@ textarea{resize:vertical}
 /* Video uses the same cover crop and zoom as the underlying photograph. */
 .monitor-plane{position:absolute;left:0;top:0;width:1584px;height:993px;transform-origin:0 0;pointer-events:none;visibility:hidden}
 .monitor-video{position:absolute;left:0;top:0;width:960px;height:612px;object-fit:fill;transform-origin:0 0;transform:matrix3d(0.194831452546,-0.0745587384259,0,-0.000148292824074,0,0.403594771242,0,0,0,0,1,0,1114,310,0,1);filter:brightness(.82) saturate(.88);opacity:0;transition:opacity .35s ease}
+.monitor-video.is-playing{opacity:1}
 @media(prefers-reduced-motion:reduce){.monitor-plane{display:none}}
 
 /* Desktop photograph fits the available area; its video uses this same geometry. */
