@@ -13,10 +13,6 @@
   <script src="script.js" defer></script>
 </head>
 <body>
-  <!-- Короткая декоративная заставка; исчезает и без JavaScript. -->
-  <div class="preloader" aria-hidden="true">
-    <div class="preloader__signature"><img class="preloader__logo" src="assets/logo.svg" alt="" width="2040" height="430"><i></i></div>
-  </div>
   <main class="hero" id="home">
     <div class="hero__visual" aria-hidden="true">
       <picture>
@@ -29,7 +25,8 @@
     </div>
     <header class="header container">
       <a class="identity" href="#home" aria-label="Даниил Рики — на главную">
-        <img class="identity__logo" src="assets/logo.svg" alt="Даниил Рики" width="2040" height="430">
+        <span class="identity__name">ДАНИИЛ РИКИ</span>
+        <span class="identity__description">Веб-дизайнер<br>и разработчик</span>
       </a>
       <nav class="navigation" aria-label="Навигация">
         <!-- Эти пункты активируются при добавлении соответствующих разделов. -->
@@ -44,7 +41,11 @@
         <span></span><span></span>
       </button>
       <div class="mobile-menu" id="mobile-menu" hidden>
-        <img class="mobile-menu__logo" src="assets/logo.svg" alt="Даниил Рики" width="2040" height="430">
+        <nav class="mobile-menu__navigation" aria-label="Навигация мобильного меню">
+          <button class="navigation__item" type="button" disabled>Работы</button>
+          <button class="navigation__item" type="button" disabled>Этапы</button>
+          <button class="navigation__item" type="button" disabled>Стоимость</button>
+        </nav>
         <button class="button button--primary" type="button" data-contact>Обсудить проект<svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg></button>
       </div>
     </header>
@@ -60,7 +61,7 @@
         <div class="hero__actions reveal" style="--delay: 620ms">
           <button class="button button--primary" type="button" data-contact><span>Получить расчёт стоимости</span><svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg></button>
           <!-- Портфолио будет подключено вместе с блоком работ. -->
-          <button class="text-link" type="button" disabled>Посмотреть работы</button>
+          <button class="text-link works-button" type="button" disabled><span>Посмотреть работы</span><svg class="arrow works-button__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg></button>
         </div>
       </div>
     </section>
