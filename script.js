@@ -99,11 +99,11 @@ const mobilePhotoQuery = window.matchMedia('(max-width: 760px)');
 let heroInView = true;
 function alignMonitor() {
   const mobile = mobilePhotoQuery.matches;
-  const photoWidth = mobile ? 1254 : 1584;
-  const photoHeight = mobile ? 1254 : 993;
+  const photoWidth = mobile ? 941 : 1584;
+  const photoHeight = mobile ? 1672 : 993;
   monitorPlane.style.width = `${photoWidth}px`;
   monitorPlane.style.height = `${photoHeight}px`;
-  const poster = mobile ? 'assets/mobile-monitor-poster.webp' : 'assets/monitor-poster.webp';
+  const poster = 'assets/mobile-monitor-poster.webp';
   if (monitorVideo.getAttribute('poster') !== poster) monitorVideo.setAttribute('poster', poster);
   const videoSource = mobile ? monitorVideo.dataset.mobileSrc : monitorVideo.dataset.desktopSrc;
   if (monitorVideo.getAttribute('src') !== videoSource) {
@@ -114,10 +114,10 @@ function alignMonitor() {
   const width = heroVisual.clientWidth, height = heroVisual.clientHeight;
   const style = getComputedStyle(heroPhoto);
   const position = style.objectPosition.split(' ').map(parseFloat);
-  const scale = style.objectFit === 'contain' ? Math.min(width / photoWidth, height / photoHeight) : Math.max(width / photoWidth, height / photoHeight);
+  const scale = mobile ? width / photoWidth : (style.objectFit === 'contain' ? Math.min(width / photoWidth, height / photoHeight) : Math.max(width / photoWidth, height / photoHeight));
   const zoom = style.transform === 'none' ? 1 : new DOMMatrixReadOnly(style.transform).a;
-  const x = (width - photoWidth * scale) * position[0] / 100;
-  const y = (height - photoHeight * scale) * position[1] / 100;
+  const x = mobile ? 0 : (width - photoWidth * scale) * position[0] / 100;
+  const y = mobile ? height - photoHeight * scale : (height - photoHeight * scale) * position[1] / 100;
   monitorPlane.style.transform = `translate(${width / 2 * (1 - zoom) + x * zoom}px, ${height / 2 * (1 - zoom) + y * zoom}px) scale(${scale * zoom})`;
   monitorPlane.style.visibility = heroPhoto.complete && heroPhoto.naturalWidth ? 'visible' : 'hidden';
 }

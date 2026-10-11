@@ -8,22 +8,22 @@
   <meta name="description" content="Разрабатываю сайты, которые превращают посетителей в клиентов. Структура, тексты, индивидуальный дизайн, разработка, базовая SEO-оптимизация и запуск.">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/inter-regular.ttf" as="font" type="font/ttf" crossorigin>
-  <link rel="preload" href="assets/hero.webp" as="image" media="(min-width: 761px)">
-  <link rel="preload" href="assets/monitor-poster.webp" as="image" media="(min-width: 761px)">
-  <link rel="preload" href="assets/hero-mobile.webp" as="image" media="(max-width: 760px)">
+  <link rel="preload" href="assets/hero-desktop-v2.webp" as="image" media="(min-width: 761px)">
+  <link rel="preload" href="assets/mobile-monitor-poster.webp" as="image" media="(min-width: 761px)">
+  <link rel="preload" href="assets/hero-mobile-portrait.webp" as="image" media="(max-width: 760px)">
   <link rel="preload" href="assets/mobile-monitor-poster.webp" as="image" media="(max-width: 760px)">
-  <link rel="stylesheet" href="styles.css?v=20261011-mobile-1">
-  <script src="script.js?v=20261011-mobile-1" defer></script>
+  <link rel="stylesheet" href="styles.css?v=20261011-composition-3">
+  <script src="script.js?v=20261011-composition-3" defer></script>
 </head>
 <body>
   <main class="hero" id="home">
     <div class="hero__visual" aria-hidden="true">
       <picture>
-        <source media="(max-width: 760px)" srcset="assets/hero-mobile.webp" width="1254" height="1254">
-        <img class="hero__photo" src="assets/hero.webp" alt="" width="1584" height="993" fetchpriority="high">
+        <source media="(max-width: 760px)" srcset="assets/hero-mobile-portrait.webp" width="941" height="1672">
+        <img class="hero__photo" src="assets/hero-desktop-v2.webp" alt="" width="1584" height="993" fetchpriority="high">
       </picture>
       <div class="monitor-plane">
-        <video class="monitor-video" autoplay muted loop playsinline preload="auto" poster="assets/monitor-poster.webp" disablepictureinpicture tabindex="-1" aria-hidden="true" data-desktop-src="assets/monitor.mp4" data-mobile-src="assets/monitor-mobile.mp4"></video>
+        <video class="monitor-video" autoplay muted loop playsinline preload="auto" poster="assets/mobile-monitor-poster.webp" disablepictureinpicture tabindex="-1" aria-hidden="true" data-desktop-src="assets/monitor.mp4" data-mobile-src="assets/monitor-mobile.mp4"></video>
       </div>
     </div>
     <header class="header container">
@@ -44,6 +44,7 @@
         <span></span><span></span>
       </button>
     </header>
+    <div class="hero__scene-space" aria-hidden="true"></div>
     <section class="hero__content container" aria-labelledby="hero-title">
       <div class="hero__copy">
         <p class="eyebrow reveal" style="--delay: 100ms">Разработка под ключ</p>
