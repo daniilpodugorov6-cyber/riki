@@ -19,7 +19,7 @@ button{cursor:pointer}
 .hero__visual::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(3,13,23,.48) 0%,rgba(3,13,23,.22) 38%,transparent 65%),linear-gradient(0deg,rgba(3,13,23,.44),transparent 20%);pointer-events:none}
 .header{position:relative;display:flex;align-items:center;gap:32px;min-height:112px;z-index:3;animation:header-enter 1s var(--ease) both}
 .identity{display:flex;align-items:center;gap:24px;flex-shrink:0}
-.identity__name{font-size:24px;font-weight:600;letter-spacing:-.05em;white-space:nowrap}
+.identity__name{font-size:24px;font-weight:600;letter-spacing:-.07em;white-space:nowrap}
 .identity__description{border-left:1px solid rgba(207,222,244,.36);padding-left:24px;color:var(--muted);font-size:13px;line-height:1.2}
 .navigation{margin-left:auto;display:flex;gap:32px}
 .navigation__item{border:0;background:none;padding:8px 0;font-size:14px;font-weight:400;opacity:.9}
