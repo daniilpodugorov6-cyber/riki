@@ -258,3 +258,16 @@ textarea{resize:vertical}
  .mobile-menu__navigation{animation:menu-enter .35s var(--ease) both}
 }
 @media(max-width:760px) and (prefers-reduced-motion:reduce){.mobile-menu__navigation{animation:none}}
+
+.headline__intro{font-weight:inherit}
+/* One continuous mobile heading, with emphasis in its opening phrase. */
+@media(max-width:760px){
+ .hero__copy>.eyebrow{font-size:8px;line-height:1.5;letter-spacing:.18em;margin-bottom:22px}
+ .headline{font-size:clamp(28px,8.4vw,44px);line-height:1.08;letter-spacing:-.045em;font-weight:400;color:#f7f8fb}
+ .headline__line,.headline__line:last-child{display:contents;font-size:inherit;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}
+ .headline__line>span{display:inline;animation:none}
+ .headline__intro{font-weight:600}
+ .headline__audience,.headline__result{display:inline}
+ .headline__accent{margin-bottom:.12em}
+ .hero__description-lead{color:#f0f3f8;font-weight:500}
+}
